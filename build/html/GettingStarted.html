@@ -1,0 +1,355 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Getting Started &#8212; PicoVRAndroidSDK_Unity 1.0 文档</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="Wave VR SDK Developer Guide" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <span class="target" id="getting-started"></span><div class="section" id="id1">
+<h1>Getting Started<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>In this section, you will learn how to build your first Wave VR application “HelloVR”.</p>
+<dl class="docutils">
+<dt>There are two ways to build a Wave VR application:</dt>
+<dd><img alt="_images/portingguide_Buildsetting.png" class="first last" src="_images/portingguide_Buildsetting.png" />
+</dd>
+</dl>
+<ol class="arabic simple">
+<li>Use the Android IDE called <strong>Android Studio</strong>. (See section <a class="reference internal" href="#building-with-android-studio">Building with Android Studio</a> for details.)</li>
+<li>Use the Android build tool called <strong>Gradle</strong>. (See section <a class="reference internal" href="#building-with-gradle">Building with Gradle</a> for details.)</li>
+</ol>
+<p>Before building a Wave VR application, you must</p>
+<ol class="arabic simple">
+<li>Prepare your build environment (section <a class="reference internal" href="#prerequisites">Prerequisites</a>)</li>
+<li>Download the Wave VR SDK (section <a class="reference internal" href="#downloading-the-sdk">Downloading the SDK</a>)</li>
+<li>Copy the required library and header files to the specified location of your local project and then start your build (section <a class="reference internal" href="#building-the-sample-apk">Building the Sample APK</a>)</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">The SDK API documentation is available in <code class="docutils literal"><span class="pre">SDK/reference</span></code>.</p>
+</div>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>Contents</strong></p>
+<ul class="last simple">
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#downloading-the-sdk">Downloading the SDK</a></li>
+<li><a class="reference internal" href="#building-the-sample-apk">Building the Sample APK</a></li>
+<li><a class="reference internal" href="#testing-a-vr-application">Testing a VR Application</a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="永久链接至标题">¶</a></h2>
+<p>This section introduces how to set up the build environment for Windows 7, 8 and 10, Ubuntu 14.04 or above and MAC OS X .</p>
+<div class="section" id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><span class="xref std std-ref">Prerequisite for Linux</span></li>
+</ul>
+</div>
+<div class="section" id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><span class="xref std std-ref">Prerequisite for Windows 7, 8 and 10</span></li>
+</ul>
+</div>
+<div class="section" id="mac-os">
+<h3>MAC OS<a class="headerlink" href="#mac-os" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><span class="xref std std-ref">Prerequisite for MAC OS X</span></li>
+</ul>
+</div>
+</div>
+<div class="section" id="downloading-the-sdk">
+<h2>Downloading the SDK<a class="headerlink" href="#downloading-the-sdk" title="永久链接至标题">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>ToDo: will be provided in future.</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>SDK Folder Layout:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>app : WAVE VR native sample apk.</li>
+<li>device : WAVE VR device service apk.</li>
+<li>docs : WAVE VR documentation.</li>
+<li>libs: WAVE VR SDK client and pluginkit library.</li>
+<li>samples : WAVE VR native sample source.</li>
+<li>services: WAVE VR server and service apk.</li>
+<li>tools : WAVE VR tool apk.</li>
+<li><dl class="first docutils">
+<dt>plugin:</dt>
+<dd><ul class="first last">
+<li>unity: WAVE VR unity plugin and sample.</li>
+<li>unreal: WAVE VR unreal plugin and sample.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>For detailed information, please refer to <strong>SDK/README.md</strong></p>
+</div>
+<div class="section" id="building-the-sample-apk">
+<h2>Building the Sample APK<a class="headerlink" href="#building-the-sample-apk" title="永久链接至标题">¶</a></h2>
+<p>This section describes how to build a Wave VR application.</p>
+<div class="section" id="building-with-android-studio">
+<h3>Building with Android Studio<a class="headerlink" href="#building-with-android-studio" title="永久链接至标题">¶</a></h3>
+<p>Android Studio is available for Windows, Mac OS, and Linux.</p>
+<ol class="arabic simple">
+<li>Use Android Studio to open the sample project. You will find the sample project in <code class="docutils literal"><span class="pre">SDK/samples/wvr_hellovr</span></code>.</li>
+<li>In <strong>File</strong> -&gt; <strong>Project Structure</strong>, set up the NDK and SDK path.</li>
+<li>Click <strong>Build</strong> -&gt; <strong>Make Project</strong>.</li>
+<li>Click <strong>Build</strong> -&gt; <strong>Build APK</strong>. You can get the <code class="docutils literal"><span class="pre">app-debug.apk</span></code> from <code class="docutils literal"><span class="pre">SDK/samples/wvr_hellovr/app/build/outputs/apk</span></code>.</li>
+</ol>
+</div>
+<div class="section" id="building-with-gradle">
+<h3>Building with Gradle<a class="headerlink" href="#building-with-gradle" title="永久链接至标题">¶</a></h3>
+<p>You can also execute all the build tasks available in Android project using the Gradle command line tool.</p>
+<ul class="simple">
+<li>Build command can be found in <span class="xref std std-ref">Build apk with Gradle Command</span></li>
+</ul>
+</div>
+</div>
+<div class="section" id="installing-the-required-vr-services">
+<h2>Installing the Required VR Services<a class="headerlink" href="#installing-the-required-vr-services" title="永久链接至标题">¶</a></h2>
+<p>To run the Wave VR application, you will need to install two APKs that contain services that run in the background while your VR app is running.</p>
+<div class="section" id="vr-server-apk">
+<h3>VR Server APK<a class="headerlink" href="#vr-server-apk" title="永久链接至标题">¶</a></h3>
+<p>This APK contains a service that will be started when a VR app exists in foreground. You can get the APK here: <code class="docutils literal"><span class="pre">SDK/services/wavevr_server.apk</span></code>. The main tasks are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>To set up a connection between the VR app and the DeviceService that is used to obtain input and tracking data.</li>
+<li>To send Events to the VR app that indicate the state of the VR hardware.</li>
+<li>To detect the lifecycle of the VR app and manage the start and stop of the VR hardware.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<ul class="last simple">
+<li>You must install VR Server (wavevr_server.apk) first, before installing any VR DeviceService or VR App.</li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="vr-oemservice-apk">
+<h3>VR OEMService APK<a class="headerlink" href="#vr-oemservice-apk" title="永久链接至标题">¶</a></h3>
+<p>This APK contains a service that will be started when VR Server starts. You can get the APK here: <code class="docutils literal"><span class="pre">SDK/services/oemservice-release.apk</span></code>. The main tasks are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>To check the environment of Wave VR and inform VR Server the result.</li>
+<li>To get information from VR Server and do some actions to it.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<ul class="last simple">
+<li>You need to install VR OEMService (oemservice-release.apk) to make sure the operation of Wave VR correctly.</li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="vr-deviceservice-apk">
+<h3>VR DeviceService APK<a class="headerlink" href="#vr-deviceservice-apk" title="永久链接至标题">¶</a></h3>
+<p>This APK contains a service that connects the plugged-in VR hardware, such as an HMD or controller. You can get the APK here: <code class="docutils literal"><span class="pre">SDK/tools/wvr_mobileHMD.apk</span></code>. The main tasks are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>To send the pose, button, or analog data to VR apps.</li>
+<li>To send device info to VR apps (such as hardware version, battery status, etc).</li>
+</ul>
+</div></blockquote>
+<p>After installing the services, you will be able to run the sample VR app on your Android device.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">If you use the other dev kit, please install DeviceService(HMD and Controller) which is specific for your dev kit.</p>
+</div>
+</div>
+</div>
+<div class="section" id="testing-a-vr-application">
+<h2>Testing a VR Application<a class="headerlink" href="#testing-a-vr-application" title="永久链接至标题">¶</a></h2>
+<p>The Wave VR SDK also comes with hardware emulators that make it possible to test your Wave VR application without requiring physical hardware.  There are two application you can use: the HMD device(use phone sensor) and the controller emulator. Each application requires an Android device to run on. If you want to use both application, you will need to have two Android devices that have Bluetooth.</p>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">This testing environment is using android phone to be an emulator. The Wave VR SDK provide a HMD DeviceService(SDK/tools/wvr_mobileHMD.apk) and Controller
+DeviceService(SDK/tools/wvr_controller_emu_host.apk and wvr_controller_emu_remote.apk) for tracking emulator on Android phone.</p>
+</div>
+<div class="section" id="installing-the-hardware-application">
+<h3>Installing the Hardware application<a class="headerlink" href="#installing-the-hardware-application" title="永久链接至标题">¶</a></h3>
+<p>You will need to prepare <em>two</em> Android devices. One will be used to HMD device(use phone sensor). The other will be used to emulate the controller. Both controllers will need to have Bluetooth turned on. You will need to pair the Android devices before testing your Wave VR application.</p>
+<div class="section" id="selecting-device">
+<h4>Selecting Device<a class="headerlink" href="#selecting-device" title="永久链接至标题">¶</a></h4>
+<ul class="simple">
+<li>If you install new device service to phone, please install setting app (SDK/app/wavevr_settings-release.apk) to choose and enable the new DeviceService that you install.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">After install wavevr_settings-release.apk and wvr_mobileHMD.apk finished, using setting app to choose Phone Device to be HMD DeviceService.</p>
+</div>
+</div>
+<div class="section" id="controller-emulator">
+<h4>Controller Emulator<a class="headerlink" href="#controller-emulator" title="永久链接至标题">¶</a></h4>
+<ul>
+<li><dl class="first docutils">
+<dt>Install</dt>
+<dd><ul class="first last">
+<li><p class="first">Prepare TWO Android phones, one is as headset phone, another one is as controller phone.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Enable Bluetooth on both phones.</dt>
+<dd><p class="first last">Select Settings &gt; Bluetooth, and turn on Bluetooth.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Pair your headset phone to controller phone via Bluetooth.</dt>
+<dd><p class="first">On both phones, go to Settings &gt; Bluetooth.</p>
+<p>On the headset phone, tap the controller phone’s name on the list of devices.</p>
+<p>This will show a dialog box on both devices to confirm the pairing.</p>
+<p class="last">Confirm the pairing, then return to the home screen on both devices.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Install SDK/tools/wvr_mobileHMD.apk on headset phone.</dt>
+<dd><p class="first last">wvr_mobileHMD.apk is a HMD tracking emulator.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Install SDK/tools/wvr_controller_emu_host.apk on headset phone and launch it.</dt>
+<dd><p class="first last">wvr_controller_emu_host.apk is controller emulator driver which used to connect to controller emulator of controller phone.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Install SDK/tools/wvr_controller_emu_remote.apk on controller phone and launch it.</dt>
+<dd><p class="first last">wvr_controller_emu_remote.apk is controller emulator with controller UI.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>On the headset phone, has 3 slots to connect to the controller phone.</dt>
+<dd><ol class="first arabic simple">
+<li>tap the connect button for the controller slot you want to use.</li>
+</ol>
+<a class="reference internal image-reference" href="ControllerEmulatorDriver_Before.png"><img alt="Controller Emulator Driver UI" src="ControllerEmulatorDriver_Before.png" /></a>
+<ol class="arabic simple" start="2">
+<li>A dialog will be displayed to select a controller.</li>
+</ol>
+<a class="reference internal image-reference" href="ControllerEmulatorDriver_Select.png"><img alt="Select a device" src="ControllerEmulatorDriver_Select.png" /></a>
+<p>After successfully connecting, the HMD emulator will show “Connect to {Device}” on the controller slot’s title.</p>
+<a class="last reference internal image-reference" href="ControllerEmulatorDriver_Connected.png"><img alt="Has a connection" src="ControllerEmulatorDriver_Connected.png" /></a>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Usage of Controller Emulator</dt>
+<dd><p class="first">Controller Emulator UI contains below elements.</p>
+<a class="last reference internal image-reference" href="ControllerEmulator_Layout.png"><img alt="Controller Emulator UI" src="ControllerEmulator_Layout.png" /></a>
+</dd>
+</dl>
+</li>
+<li><p class="first">Double-tapping the virtual <strong>trackpad (large circle)</strong> area triggers the pressed event of trackpad.</p>
+</li>
+<li><p class="first">Tapping the <strong>menu button (small circle with 3 bars)</strong> triggers the pressed event of the menu button and should cause the menu with the application to appear.</p>
+</li>
+<li><p class="first">Tapping the <strong>system button (small circle with 2 arrows)</strong> should never triggers the pressed event of the system button because the system button is reserved.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="上一章">Wave VR SDK Developer Guide</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Pico_Support.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/GettingStarted.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,184 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Daydream to Wave VR &#8212; PicoVRAndroidSDK_Unity 1.0 文档</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="daydream-to-wave-vr">
+<h1>Daydream to Wave VR<a class="headerlink" href="#daydream-to-wave-vr" title="永久链接至标题">¶</a></h1>
+<p>This section will help you to port mobile application(Daydream) to the <strong>Wave VR</strong> platform.
+There are two major parts:</p>
+<ol class="arabic simple">
+<li><strong>Unity project setting and Import of Wave VR SDK package</strong></li>
+<li><strong>Replacing Camera and Controller with Wave VR</strong></li>
+</ol>
+<div class="section" id="unity-project-setting-and-import-wave-vr-sdk-package">
+<h2>Unity project setting and import Wave VR SDK package<a class="headerlink" href="#unity-project-setting-and-import-wave-vr-sdk-package" title="永久链接至标题">¶</a></h2>
+<p>In Wave VR, import SDK and edit project setting.</p>
+<div class="section" id="unity-project-setting">
+<h3>Unity project setting<a class="headerlink" href="#unity-project-setting" title="永久链接至标题">¶</a></h3>
+<dl class="docutils">
+<dt>1.Make sure platform as the “Android” in “build Settings”.</dt>
+<dd><img alt="_images/portingguide_Buildsetting.png" class="first last" src="_images/portingguide_Buildsetting.png" />
+</dd>
+<dt>2.Turn off “Virtual Reality Supported” in Player Settings.</dt>
+<dd><img alt="_images/portingguide/portingguide_project_setting.png" class="first last" src="_images/portingguide/portingguide_project_setting.png" />
+</dd>
+</dl>
+</div>
+<div class="section" id="import-wave-vr-sdk">
+<h3>Import Wave VR SDK<a class="headerlink" href="#import-wave-vr-sdk" title="永久链接至标题">¶</a></h3>
+<dl class="docutils">
+<dt>Download the latest Wave VR SDK and import it.</dt>
+<dd><img alt="_images/portingguide/portingguide_import.png" class="first last" src="_images/portingguide/portingguide_import.png" />
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="replace-camera-and-controller-to-wave-vr">
+<h2>Replace Camera and Controller to Wave VR<a class="headerlink" href="#replace-camera-and-controller-to-wave-vr" title="永久链接至标题">¶</a></h2>
+<p>Adjust the following components:</p>
+<ol class="arabic simple">
+<li>Camera</li>
+<li>Controller</li>
+</ol>
+<p>In Wave VR, the <strong>Camera</strong> is a specific prefab so you need to replace <strong>Main Camera</strong> object with <strong>WaveVR</strong> object and delete relative scripts from Daydream.</p>
+<dl class="docutils">
+<dt>From:</dt>
+<dd><img alt="_images/portingguide/portingguide_daydream_camera.png" class="first last" src="_images/portingguide/portingguide_daydream_camera.png" />
+</dd>
+<dt>To:</dt>
+<dd><img alt="_images/portingguide/portingguide_reprlace_daydream_camera.png" class="first last" src="_images/portingguide/portingguide_reprlace_daydream_camera.png" />
+</dd>
+</dl>
+<div class="section" id="controller">
+<h3>Controller<a class="headerlink" href="#controller" title="永久链接至标题">¶</a></h3>
+<p>Below are the button comparison and steps for controller script replacement.</p>
+<div class="section" id="gvr-controller-compared-with-wave-vr">
+<h4>GVR Controller compared with Wave VR<a class="headerlink" href="#gvr-controller-compared-with-wave-vr" title="永久链接至标题">¶</a></h4>
+<p>In GVR controller API, there are different states listed below:</p>
+<blockquote>
+<div><img alt="_images/portingguide/portingguide_gvr_controller.png" src="_images/portingguide/portingguide_gvr_controller.png" />
+</div></blockquote>
+<p>In Wave VR controller API, there are:</p>
+<ol class="arabic simple">
+<li>Touch button</li>
+<li>Trigger button</li>
+<li>Menu button</li>
+</ol>
+<p>GVR directly gets the status of controller by variables. However, Wave VR uses “device” type, “buttonId” mask and functions to get the states.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">WaveVR_Controller</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">GetPressDown</span><span class="p">(</span><span class="n">buttonId</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="o">//</span> <span class="k">if</span> <span class="n">button</span> <span class="k">with</span> <span class="n">buttonId</span> <span class="ow">is</span> <span class="n">pressed</span> <span class="n">down</span><span class="o">.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can check <span class="xref std std-ref">Wave VR controller</span> section to get more details.</p>
+<p>Note: Wave VR supports multiple VR devices.
+Some buttons don’t existed in actual devices so states of these buttons may always get “false”.
+For example, there is no Grip button in the actual Link controller device.</p>
+<blockquote>
+<div><img alt="_images/portingguide/portingguide_button.png" src="_images/portingguide/portingguide_button.png" />
+</div></blockquote>
+</div>
+<div class="section" id="gvr-controller-replaced-with-wave-vr-controller">
+<h4>GVR Controller replaced with Wave VR Controller<a class="headerlink" href="#gvr-controller-replaced-with-wave-vr-controller" title="永久链接至标题">¶</a></h4>
+<p>There are two methods to do it.</p>
+<div class="section" id="use-default-controller-prefab">
+<h5>Use default controller prefab<a class="headerlink" href="#use-default-controller-prefab" title="永久链接至标题">¶</a></h5>
+<p>First, you need to delete all Daydream’s controller scripts and add prefabs named <strong>Link_6DOF_Controller_MultiComponent_L</strong> and <strong>Link_6DOF_Controller_MultiComponent_R</strong> into the scene.</p>
+<blockquote>
+<div><img alt="_images/portingguide/portingguide_add_wavevr_controller_prefab.png" src="_images/portingguide/portingguide_add_wavevr_controller_prefab.png" />
+</div></blockquote>
+</div>
+<div class="section" id="use-controller-script-only">
+<h5>Use controller script only<a class="headerlink" href="#use-controller-script-only" title="永久链接至标题">¶</a></h5>
+<p>In Wave VR the orientation of controller directly affects the orientation of object that has the <strong>WaveVR_PoseTracker</strong> script.
+You need to add “WaveVR_PoseTracker” script on the new gameobject that you want to be affected by controller.</p>
+<blockquote>
+<div><img alt="_images/portingguide/portingguide_add_posetracker.png" src="_images/portingguide/portingguide_add_posetracker.png" />
+</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Pico_Support.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/DaydreamToWaveVR.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

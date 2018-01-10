@@ -1,0 +1,143 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>第十章 常见问题解答 &#8212; PicoVRAndroidSDK_Unity 1.0 文档</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<span id="id2"></span><h1>第十章 常见问题解答<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="camera-culling-mask">
+<h2>10.1 Camera Culling Mask 如何设置<a class="headerlink" href="#camera-culling-mask" title="永久链接至标题">¶</a></h2>
+<p>Pvr_UnitySDK中LeftEye 以及RightEye 的Camera中可设置属性Culling Mask:</p>
+<p>1.适配过Cardboard SDK,使用过toggle culling mask选项的,可通过直接修改Camer属性完成.</p>
+<p>2.如果需要代码修改toggle culling mask,可参见普通相机修改方式.</p>
+<p>3.对于左右眼需要看不同物体的时候, 通过PicoVR左右眼相机Culling Mask来控制显示</p>
+<p>Layer, 左眼相机Culling Mask不勾选右眼物体的Layer,右眼相机Culling Mask不勾选左</p>
+<p>眼物体的Layer.</p>
+</div>
+<div class="section" id="piconeo">
+<h2>10.2 在PicoNeo中如何实现退出功能<a class="headerlink" href="#piconeo" title="永久链接至标题">¶</a></h2>
+<p>开发者可以自己实现相应功能或者在SDK的AssetsPicoVRSDKScripts目录下，找到</p>
+<p>QuitGame.cs脚本，将其拖动到PicoVR的GameObject的上,在运行时按返回键即可退</p>
+<p>出, 注意此种方式, 开发者需要自己释放游戏或应用动态加载的资源.</p>
+</div>
+<div class="section" id="sensor">
+<h2>10.3 如何将sensor 作用于场景其他物体<a class="headerlink" href="#sensor" title="永久链接至标题">¶</a></h2>
+<p>按以下步骤进行设置：</p>
+<p>1、将场景中PicoVR 中的 head 上PicoVRHeadTrack 脚本不勾选：</p>
+<img alt="_images/10.3.PNG" src="_images/10.3.PNG" />
+<p>2、选中想要作用的物体，添加PicoVRHeadTrack 脚本。</p>
+</div>
+<div class="section" id="id3">
+<h2>10.4 PicoNeo上要达到比较流畅的效果，对帧率及场景有什么要求<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>帧率：</p>
+<p>PicoNeo场景帧率不得低于30帧,建议45帧以上。</p>
+<p>场景：</p>
+<p>模型三角面片控制在10万以内</p>
+<p>模型顶点数控制在10万以内</p>
+<p>普通unity灯光例如电光源数量控制在50以内</p>
+<p>普通unity粒子系统数量控制在50以内</p>
+<p>Unity shader尽量使用效率较高的</p>
+<p>优化方法举例：</p>
+<p>在保证显示的情况下减少模型面片定点数量</p>
+<p>尽力共用材质，动画</p>
+<p>尽量使用压缩纹理格式</p>
+<p>尽可能少的使用灯光特效等</p>
+<p>尽量使用静态批处理</p>
+<p>脚本优化，减少不必要内存，计算等资源消耗</p>
+</div>
+<div class="section" id="id4">
+<h2>10.5 如何替换应用打开时的加载动画<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>替换应用打开时的加载动画仅限Goblin及Pico Neo，即应用打开前会加载Pico专有的加载</p>
+<p>界面，如想使用Uinty默认的加载界面或者自定义加载界面，请打开AndroidManifest找到</p>
+<p>platform_logo标签把android:value置为1</p>
+<img alt="_images/10.5.PNG" src="_images/10.5.PNG" />
+</div>
+<div class="section" id="dof">
+<h2>10.6 如何关闭在手机上运行游戏时自动连接3dof的功能<a class="headerlink" href="#dof" title="永久链接至标题">¶</a></h2>
+<p>在普通手机上，运行Pvr_Controller Demo后，会自动搜索附近的手柄，并自动连接第一</p>
+<p>个搜索到的Pico 3dof Controller，当连接成功后，停止搜索。如果连接不成功,15秒后会弹</p>
+<p>出提示框,提示用户重新搜索或退出搜索.</p>
+<p>假如需要关闭自动连接功能。需要把Pvr_ControllerLink.cs文件中的bool isAutoConnect</p>
+<p>修改为false即可。</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Pico_Support.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/第十章.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

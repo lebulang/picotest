@@ -1,0 +1,45 @@
+.. Wave VR documentation master file, created by
+   sphinx-quickstart on Wed Jul  6 09:45:14 2016.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+
+
+.. |SDKNAME| raw:: html
+
+    Wave VR
+
+.. |AndroidTM| raw:: html
+
+    Android&trade;
+
+
+.. toctree::
+   :hidden:
+
+   ReleaseNote
+   GettingStarted
+   SDKOverview
+   Tutorials
+   UnityPlugin
+   UnrealPlugin/UnrealPlugin
+   PortingGuide
+
+|SDKNAME| SDK Developer Guide
+========================================
+
+|SDKNAME| is an API and runtime which enables developers to create VR contents on |AndroidTM|. Our aim is to provide a flexible and simple interface for developers so that developers can focus on designing awesome and immersive VR experiences without requiring specific knowledge of the VR hardware.
+
+|SDKNAME| SDK contains the APIs, libraries, and samples for developing VR apps. This guide shows you the following contents.
+
+Table of Contents
+--------------------
+============================================== ========================================================================
+:ref:`Release Note <release_note>`             Release note for each SDK version.
+:ref:`Getting Started <getting_started>`       Set up development environment and build your first |SDKNAME| app.
+:ref:`SDK Overview <sdk_overview>`             Introduce |SDKNAME| SDK for VR app and device driver development.
+:ref:`Tutorials <tutorials>`                   Enumerate several examples to demonstrate |SDKNAME| program.
+:ref:`Unity Plugin of WaveVR <unity_plugin>`   Use Unity plugin of |SDKNAME| SDK to create your VR content apps.
+:ref:`Unreal Plugin of WaveVR <unreal_plugin>` Use Unreal plugin of |SDKNAME| SDK to create your VR content apps.
+:ref:`Porting Guide <porting_guide>`           Port Daydream or Vive content apps to |SDKNAME|.
+============================================== ========================================================================
